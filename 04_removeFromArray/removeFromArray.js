@@ -1,9 +1,9 @@
-const removeFromArray = function(list, removedNum) {
-    let newList = [];
-    for(value of list) {
-        if(value === removedNum) {
-            continue;
-        }
+const removeFromArray = function(list, ...removeVals) {
+    const newList = [];
+    nextValue: for(const value of list) {
+        for(const removeVal of removeVals){
+            if(value === removeVal) continue nextValue;
+    }
         newList.push(value);
     }
     return newList;
